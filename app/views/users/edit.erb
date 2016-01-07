@@ -1,0 +1,9 @@
+<div class ="profile">
+		<h2>Edit <%= @user.name %>'s Profile</h2>
+			<form action="/users/<%= @user.id %>" method="POST">
+		      <input type="hidden" name="_method" value="patch">
+			  <input type="text" name="name" placeholder="Name" value="<%= @user.name %>">
+			  <input type="text" name="email" placeholder="Email" value="<%= @user.email %>">
+			  <input type="submit" value="Update Profile">
+			</form>
+</div>

@@ -1,2 +1,30 @@
-<h1>Hello World</h1>
-<p>See Me in views/static/index.html.erb</p>
+<% if logged_in? %>
+	
+	Welcome <%= current_user.name %>!
+
+	<a href="/property/new">POST a Property</a>
+	<a href="/users/<%=@current_user.id%>/show"><%= current_user.name %> Profile</a>
+	<a href="/logout">Logout</a>
+	
+<% else %>
+	<div id="login">
+		<div class ="signup">
+		<h2>Sign Up For An Account.</h2>
+			<form method = "post" action="/signup">
+				<input type="text" placeholder="Name" name="user[name]"></br>
+				<input type="text" placeholder="Email" name="user[email]"></br>
+				<input type="password" placeholder="Password" name="user[password]"></br>
+				<input type="submit" value="Sign up">
+			</form>
+		</div>
+		<div class="masuk">
+		<h2>Log In To Continue.</h2>
+			<form method = "post" action="/login">
+				<input type="text" placeholder="Email" name="user[email]"></br>
+				<input type="password" placeholder="Password" name="user[password]"></br>
+				<input type="submit" value="Log In">
+			</form>
+		</div>
+	</div>
+<% end %>
+

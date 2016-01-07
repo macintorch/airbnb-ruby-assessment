@@ -1,0 +1,15 @@
+<% if logged_in? %>
+	<h2> Welcome <%= current_user.name %>! </h2>
+	<h4>This is list of all properties available.</h4>
+	<a href="/">Back to index</a>
+	<div class="show_property">
+		<ul>
+			<% @property.each do |prop| %>
+				<li>
+					<a href="/property/<%=prop.id%>"><%= prop.title %></a>
+					<small>posted by <%= prop.user.name %></small>
+				</li>
+			<% end %>
+		</ul>
+	</div>
+<%end%>

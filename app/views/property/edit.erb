@@ -1,0 +1,13 @@
+<h2>Update your property</h2>
+	<form action="/property/<%= @property.id %>/edit" method="post">
+		<input type="hidden" name="_method" value="patch">
+		<input type="text" name="property[title]" placeholder="<%=@property.title%>"value="">
+		<input type="number" name="property[price]" placeholder="<%=@property.price%>">
+		<textarea name="property[description]"><%=@property.description%></textarea>
+		<input type="submit" value="Update">
+	</form>
+ <br>
+	<form action="/property/<%= @property.id %>" method="post">
+		<input type="hidden" name="_method" value="delete">
+		<input type="submit" value="Delete question"> Delete property?
+	</form>

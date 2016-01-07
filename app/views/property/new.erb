@@ -1,0 +1,11 @@
+<% if logged_in? %>
+	<h2> Welcome <%= current_user.name %>! Create a property here.</h2>
+	<form action="/property/new" method='post'>
+	    <input type="text" name="title" placeholder="Title"value="">
+	  
+	    <input type="number" name="price" placeholder="Price Per Month">
+	    
+		<textarea name="description" value="" placeholder="Description"></textarea> 
+		<button>Submit</button>
+	</form>
+<% end %>

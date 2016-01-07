@@ -1,0 +1,15 @@
+<% if logged_in? %>
+	<h2> Welcome <%= current_user.name %>! </h2>
+	<a href="/property">Back to Property Listings</a>
+	
+	<div class="show_property">
+	  <h3>This is detail for <%= @property.title %>.</h3>
+	  <h4>Submitted by <%= @property.user.name %></h4>
+	  <p> Details : <%= @property.description%></p>
+	  <p>The price is : RM <%= @property.price%></p>
+	  <% if @property.user == current_user %>
+				<a href="/property/<%= @property.id %>/edit" class="right"><button>Edit property</button></a>
+			<% end %>
+	</div>
+
+<%end%>
